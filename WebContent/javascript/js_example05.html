@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" >
+<title> j005</title >
+</head>
+<body>
+
+<h1> 조건문</h1 >
+
+<script type="text/javascript" >
+"use strict"
+
+// 조건문: 조건에 참이면 명령문 수행
+// if (조건) 명령문;
+// if (조건) { 명령문; 명령문; ...}
+console.log("===== if (조건) 명령문;");
+
+var age = 19;
+if(age >= 19){
+       console.log( "너는 성인이다~!" );
+}
+
+console.log("===== if (조건) {명령문;...}");
+if(age >= 19) {
+         console.log( "너는 성인이다~!" );
+         console.log( "니인생 니가 책임져라~!" ); 
+         console.log( "자립하라~~~~~!" );
+}
+
+
+// if .. else
+// if (조건) 명령문; else 명령문
+// 사용자로부터 데이터를 입력받고 싶을때 사용할 도구는
+// prompt() : 사용자로부터 값을 입력받는 대화창을 띄운다
+
+console.log("===== if..else.............}");
+
+//var input = prompt('당신의 나이는','19');
+age = Number(input);
+if(age >= 19) {
+      console.log( '너는 성인이다' );
+}else{
+      console.log( '너는 미성년자이다' );
+}
+
+// if .. else if .. else if ... else
+// 문제 : 0 ~ 7(영유아) , 8 ~ 13(아동) , 14 ~ 19(청소년) , 19 이상 (성인), 그밖에 (잘못입력!)
+// if(조건) 명령문; <-- 한문장
+// if(조건) 명명문; else 명령문; <-- 한문장
+console.log("===== if..else if .. else if .. else ...........}");
+
+var input = prompt('당신의 나이는' ,'19');
+age = Number(input);
+
+
+if(age < 0) {
+        console.log( '잘못입력');
+}else if(age <= 7){
+  console.log( '영유아');
+}else if(age <= 13){
+    console.log( '아동');
+}else if(age <= 19){
+    console.log( '청소년');
+}else{
+    console.log( '성인!');
+}
+
+/*
+switch(값){
+ case 값1: 명령문; 명령문;....break;
+ case 값2: 명령문; 명령문;....break;
+ case 값13: 명령문; 명령문;....break;
+ default : 명령문; 명령문;
+}
+*/
+
+console.log("===== switch {}  ...........}");
+
+switch(age){
+ case 60:
+       console.log( '환갑 축하합니다.' );
+       break;
+ case 70:
+       console.log( '칠순 축하합니다.' );
+       break;
+ case 80:
+       console.log( '수고하셨습니다' );
+       break;
+ default :
+       console.log( '뭐라 할말 없음!' );
+}
+
+// window : Global 변수, 함수, 객체를 보관
+// window를 생략할 수 있다.
+console.log("===== window  ...........}");
+var age2 = 50;  // window 객체에 소속됨.
+console.log(age2);
+console.log(window.age2);
+
+window.age3 = 30; // 명시적으로 window 객체에 소속됨
+console.log(age3);
+console.log(window.age3);
+
+// window 객체의 대화상제 3형제
+// 1) alert(값) : 알림메시지 출력때 사용
+// 2) prompt(제목, 기본값) : 사용자에게 값 요구할때 사용
+// 3) confirm(제목) : 사용자에게 확인을 요구할 때
+
+console.log("===== ===== 대화상자 삼형제 ===== ===== }" );
+window.alert("이것이 알림창이다!!!");
+var input = prompt('당신이 좋아하는 색은?' );
+console.log(input);
+
+input = confirm('정말로 삭제하시겠습니까?' ); // [확인] -> true, [취소] -> false
+console.log(input);
+
+</script>
+</body>
+</html>
