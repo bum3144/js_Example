@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" >
+<title> j012</title >
+</head>
+<body>
+<h1> 객체 응용</h1 >
+<script>
+"use strict" ;
+
+// 객체 배열
+
+var students = [{name:'홍길동' ,kor:100,eng:90,math:80},
+                {name: '임꺽정',kor:90,eng:95,math:100},
+                {name: '장길산',kor:95,eng:50,math:65}];
+
+console.log('--------------------------------------------------');
+for (var i=0; i<students.length; i++){
+      console.log(students[i].name,
+                     students[i].kor,
+                     students[i].eng,
+                     students[i].math);
+}
+
+console.log('----- forEach -----');
+// 문제: 위의 출력을 forEach() 사용하는 코드로 바꾸시오
+ function student(students) {
+     console.log(students.name,students.kor,students.eng,students.math);
+ }
+ students.forEach(student);
+
+ 
+ console.log('----- forEach 사용 연습-----');  
+ students.forEach( function(student){
+       console.log(student.name,
+               student.kor,
+               student.eng,
+               student.math);
+ });
+ 
+ 
+/* 
+1) students. =>배열선언)
+2) students.forEach(); => forEach(); 호출
+3) students.forEach(function(){}); 파라미터 function(){} 전달
+4) students.forEach(function(student){}); 파라미터 선언  -> 의미있는 변수명 지정
+5) 코딩
+    students.forEach(function(student){
+         console.log(student.name,student.kor,student.eng,student.math);
+    });
+ */
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+"--------------------------------------------------"
+"홍길동" 100 90 80 
+"임꺽정" 90 95 100
+"장길산" 95 50 65 
+"----- forEach -----"
+"홍길동" 100 90 80 
+"임꺽정" 90 95 100
+"장길산" 95 50 65 
+"----- forEach 사용 연습-----" 
+"홍길동" 100 90 80 
+"임꺽정" 90 95 100 
+"장길산" 95 50 65
+
+
+
+
+
+
+
+
+
+
+
+  
