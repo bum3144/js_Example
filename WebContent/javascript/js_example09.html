@@ -6,119 +6,111 @@
 </head>
 <body>
 
-<h1> 내장 함수 (inner function) </h1>
+<h1> inner function </h1>
 
-<script type="text/javascript" >
+<script>
 "use strict"
-
-// 함수는 함수 안에서 정의 될수 있다.
-// * 내장 함수를 사용하는 이유?
-// 1) 외부 공개를 제한 -> 공개적으로  사용하지 않은 함수는 감추어서,
-// 진짜 필요할 때함수 이름 쓸수 없게 한다.
-// 2) 외부에서 연결 불가! -> 보안장치
+/* 
 function calc(a, b, op){
-       switch(op){
-        case '+' :
-                return plus(a,b);
-        case '-' :
-                return minus(a,b);
-        default:
-              throw '오라~~~~해당 없음!!' ; // 예외 발생 명령어 throw       
-      }
-      
-       function plus(a, b){
-             return a + b;
-      }
-      
-       function minus(v1, v2){
-             return a - b;
-      }
+	switch(op){
+		case '+' :
+			return plus(a,b);
+		case '-' :
+			return minus(a,b);
+		default:
+			throw 'oh!~~~error!!';
+	}
+	
+	function plus(a,b){
+		return a + b;
+	}
+	function minus(a,b){
+		return a + b;
+	}
 }
-
-
-function plus(a, b){
-  return a*a + b*b;
-}
-
-console.log(calc(10,20, '+')); // 30
-console.log(plus(10,20)); // Error!
-
-
-// 내장 함수의 다른 용도 : 공장역할! "Factory Method" Pattern            
-function runFactory(level) { // run() 함수를 만드는 공장역할!
- 
-       /*  switch(arguments[0]){ */
-       switch(level){   
-            case 2: return run2;
-          case 3: return run3;
-          default: return run1;
-        }
-      
-        function run1(){
-                console.log( "달린다.." );
-              }
-        function run2(){
-                console.log( "뛴다..");
-              }
-        function run3(){
-                console.log( "난다..휘리릭~" );
-              }
-}
-var level = prompt("달리기 레벨?" ,1);
-var run = runFactory(Number(level));
-
-run(); // 1. 달린다. 2. 뛴다. 3. 난다.
-
-
-
-/*
- * 함수를 파라미터로 받기
+console.log(calc(10,20,'+'));
  */
-function plus2(a,b) {
-       return a + b;
+/* 
+function plus(a, b){
+	  return a*a + b*b;
 }
+console.log(plus(10,20));
+ */	
 
-function minus2(a,b) {
-       return a - b;
+/*  
+console.log("//======== Factory Method ==========");
+
+function runFactory(level){
+	
+	switch(level){
+		case 2: return run2();
+		case 3: return run3();
+		default: return run1();
+	}
+	
+	function run1(){
+		console.log("I run!");
+	}
+	function run2(){
+		console.log("I run to you!");
+	}
+	function run3(){
+		console.log("I fly~~!");
+	}
+	
 }
+var level = prompt("Run level?",1);
+var run = runFactory(Number(level));
+ */
+ 
+ function plus2(a, b){
+	 return a + b;
+ }
+ 
+ function minus2(a, b){
+	 return a - b;
+ }
+ 
+ function calc2(f, a, b){
+	 console.log(f(a,b));
+ }
+ 
+ calc2(plus2, 10, 20);
+ calc2(minus2, 10, 20);
+ 
 
+function myEach(arr,f){
+	 for (var i in arr){
+		 f(i, arr[i]);
+	 }
+ }
 
-function calc2(f, a, b){
-      console.log(f(a,b));
+ var name = ['jeremy','tom','superman','july','happy','kim'];
+ 
+ //old
+for (var i in name){
+	console.log(name[i]);
 }
-
-console.log("파라미터로 함수를 받아서 호출하기-----------------------" );
-calc2(plus2, 10, 20);
-calc2(minus2, 10, 20);
-
-
-// 문제: 반복문을 사용하지 않고 배열다루기
-function myEach(arr,f) {
-       for (var i in arr) {
-            f(i, arr[i]);
-      }
-}
-var names = ['홍길동' ,'임꺽정', '장길산','장보고' ,'유덕화', '주윤발'];
-
-//예전방식
-console.log("배열처리 예전 방식-----------------------" );
-for (var i in names) {
-      console.log(names[i]);
-}
-
-// myEach를 사용한 현대식 방식
-console.log("myEach를 사용한  방식-----------------------" );
-var fx = function (index, item) {
-      console.log(item);
+ 
+// modern
+var fx = function(index, item){
+	console.log(item);
 };
-myEach(names, fx);
+myEach(name, fx);
 
-console.log("myEach() + function(){} 를 사용한  방식-----------------------");
-myEach(names, function(index, item) {
-  console.log(item);
+// myEach() + function(){}
+myEach(name, function(index, item){
+	console.log(item);
 })
-
 </script>
+
+
+
+
+
+
+
+
 
 </body>
 </html>
