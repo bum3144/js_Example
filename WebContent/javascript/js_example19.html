@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" >
+<title> j019</title >
+</head>
+<body>
+  <h1 >객체 구성원 : 데이터와 메서드(함수) </h1>
+  <p >Calculator.prototype : 공유자원 보관소</p >
+ 
+<script src="calculator4.js" ></script>
+<script>
+"use strict" ;
+
+  // 3 * 2 + 7 - 5 = 8
+  // 8 - 4 * 2 / 9 = ?
+  var calc1 = new Calculator();
+  var calc2 = new Calculator();
+ 
+
+ 
+  calc1.init(3);
+  calc2.init(5);
+
+  calc1.multiple(2);
+  calc2.minus(4);
+
+  calc1.plus(7);
+  calc2.multiple(2);
+
+  calc1.minus(5);
+  calc2.divide(9);
+ 
+
+  calc1.printResult(); // 3 * 2 + 7 - 5 = 8
+  calc2.printResult(); // 8 - 4 * 2 / 9 = ?
+      
+</script>
+
+</body>
+</html>
+
+
+
+
+
+=============== calculator4.js ===============
+
+
+
+// 4단계: 공용 함수 공유
+// - prototype : 공유 자원 보관소
+// - 사용: 생성자함수.prototype
+function Calculator () {
+       this.sum = 0;     
+       this.note = '' ;
+}
+
+Calculator.prototype.plus = function(value ){
+             this.sum += value ;
+             this.note +=  ' + ' + value;
+};
+Calculator.prototype.minus = function(value ){
+       this.sum -= value ;
+       this.note +=  ' - ' + value;
+};          
+Calculator.prototype.multiple = function(value ){
+       this.sum *= value ;
+       this.note +=  ' * ' + value;
+};
+Calculator.prototype.divide = function(value ){
+       this.sum /= value ;
+       this.note +=  ' / ' + value;
+};
+Calculator.prototype.init = function(value ){
+        if(arguments.length == 0){
+              this.sum = 0;
+              this.note = '' ;
+        } else{
+              this.sum = value ;
+            this.note +=  + value ;
+        }
+};
+      
+Calculator.prototype.printResult = function(){
+        console .log(this.note + " = " + this .sum);
+};
+
+=============== 결과 ===============
+
+"3 * 2 + 7 - 5 = 8" calculator3.js:33
+"5 - 4 * 2 / 9 = 0.2222222222222222"

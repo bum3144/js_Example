@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" >
+<title> j016</title >
+</head>
+<body>
+  <h1 >객체 구성원 : 데이터와 메서드(함수) </h1>
+  <p >자바스크립트 코드를 별도 파일로 분리 </p>
+  <script src= "calculator.js"></script >
+<script>
+"use strict" ;
+
+  // 3 * 2 + 7 - 5 = 8
+      init(3);
+      multiple(2);
+      plus(7);
+      minus(5);
+ 
+      console.log(sum);
+      
+  printResult(); // 3 * 2 + 7 - 5 = 8
+      
+</script>
+
+</body>
+</html>
+
+=============== calculator.js ===============
+
+
+
+
+var sum = 0;
+var note = '';
+function plus (value){
+       sum += value ;
+        note +=  ' + ' + value;
+}
+function minus (value){
+       sum -= value ;
+       note +=  ' - ' + value;
+}           
+function multiple (value){
+       sum *= value ;
+        note +=  ' * ' + value;
+}
+function divide (value){
+       sum /= value ;
+        note +=  ' / ' + value;
+}
+function init (value){
+        if(arguments.length == 0){
+              sum = 0;
+              note = '' ;
+        } else{
+              sum = value ;
+            note +=  + value ;
+        }
+}
+
+function printResult (){
+/*      console.log(sum);*/
+        console.log( note + " = " + sum);
+}
+
+
+
+
+
+
+=============== 결과 ===============
+
+8 
+"3 * 2 + 7 - 5 = 8"
+
+
+
+
+
+
+  

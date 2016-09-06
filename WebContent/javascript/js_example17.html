@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" >
+<title> j017</title >
+</head>
+<body>
+  <h1 >객체 구성원 : 데이터와 메서드(함수) </h1>
+  <p >자바스크립트 코드를 별도 파일로 분리 </p>
+  <p >makeCalculator() : 게산기 객체 생성
+ 
+  <script src= "calculator2.js"></script >
+<script>
+"use strict" ;
+
+  // 3 * 2 + 7 - 5 = 8
+  // 8 - 4 * 2 / 9 = ?
+  var calc1 = makeCalculator();
+  var calc2 = makeCalculator();
+
+  calc1.init(3);
+  calc2.init(5);
+
+  calc1.multiple(2);
+  calc2.minus(4);
+
+  calc1.plus(7);
+  calc2.multiple(2);
+
+  calc1.minus(5);
+  calc2.divide(9);
+ 
+
+  calc1.printResult(); // 3 * 2 + 7 - 5 = 8
+  calc2.printResult(); // 8 - 4 * 2 / 9 = ?
+      
+</script>
+
+</body>
+</html>
+
+
+
+
+
+=============== calculator2.js ===============
+
+
+
+
+
+function makeCalculator () {
+       var calculator = new Object();
+       calculator.sum = 0;     
+       calculator.note = '' ;
+      
+       calculator.plus = function(value){
+             this.sum += value ;
+             this.note +=  ' + ' + value;
+      };
+       calculator.minus = function(value){
+             this.sum -= value ;
+             this.note +=  ' - ' + value;
+      };          
+       calculator.multiple = function(value){
+             this.sum *= value ;
+             this.note +=  ' * ' + value;
+      };
+       calculator.divide = function(value){
+             this.sum /= value ;
+             this.note +=  ' / ' + value;
+      };
+      calculator.init = function(value ){
+              if(arguments.length == 0){
+                    this.sum = 0;
+                    this.note = '' ;
+              } else{
+                    this.sum = value ;
+                  this.note +=  + value ;
+              }
+      };
+      
+       calculator.printResult = function(){
+              console .log(this.note + " = " + this .sum);
+      };
+       return calculator ;
+}
+
+
+
+=============== 결과 ===============
+
+"3 * 2 + 7 - 5 = 8"
+"5 - 4 * 2 / 9 = 0.2222222222222222"
