@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> js_example19 - data & method(function) </title>
+<script src="calculator3.js"></script>
+</head>
+<body>
+	<p> level 4 :  Calculator.prototype</p>
+	
+	
+<script>
+"use strict"
+	// 3 * 2 + 7 - 5 = 8
+	// 8 - 4 * 2 / 9 = ??
+		
+	var calc1 = new Calculator();
+	var calc2 = new Calculator();
+	
+	calc1.init(3);
+	calc1.multiple(2);
+	calc1.plus(7);
+	calc1.minus(5);
+	calc1.printResult();	// 3 * 2 + 7 - 5 = 8
+	
+	calc2.init(8);
+	calc2.minus(4);
+	calc2.multiple(2);
+	calc2.divide(9);
+	calc2.printResult();	// 8 - 4 * 2 / 9 = ??
+	
+		
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
