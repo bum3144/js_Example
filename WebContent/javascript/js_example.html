@@ -2,34 +2,36 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title> js_example19 - data & method(function) </title>
-<script src="calculator3.js"></script>
+<title> js_example21 - DOM API</title>
+
 </head>
 <body>
-	<p> level 4 :  Calculator.prototype</p>
+<h1>DOM API - Create Elements</h1>
+
+<form>
+<textarea id="message" style="width:400px; height:60px"></textarea>	
+<input type="button" Onclick="addMessage();" value="Click Click" />
+</form>
 	
-	
+<div id="feedList"></div>
+
 <script>
 "use strict"
-	// 3 * 2 + 7 - 5 = 8
-	// 8 - 4 * 2 / 9 = ??
-		
-	var calc1 = new Calculator();
-	var calc2 = new Calculator();
+function addMessage(){
+	var msg = document.getElementById('message');
 	
-	calc1.init(3);
-	calc1.multiple(2);
-	calc1.plus(7);
-	calc1.minus(5);
-	calc1.printResult();	// 3 * 2 + 7 - 5 = 8
+	var p = document.createElement('p');
+	p.innerHTML = msg.value;
+	msg.value = '';
 	
-	calc2.init(8);
-	calc2.minus(4);
-	calc2.multiple(2);
-	calc2.divide(9);
-	calc2.printResult();	// 8 - 4 * 2 / 9 = ??
+	var hr = document.createElement('hr');
 	
-		
+	var div = document.getElementById('feedList');
+	
+	div.appendChild(p);
+	div.appendChild(hr);
+}
+
 </script>
 
 
