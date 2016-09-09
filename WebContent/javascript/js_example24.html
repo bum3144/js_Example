@@ -1,42 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8" >
-<title> j024</title >
+<meta charset="UTF-8">
+<title> js_example24 - DOM API : Element Attribute</title>
+
 </head>
 <body>
-  <h1 >DOM API : 엘리먼트 속성 추가하기 </h1>
+<h1>DOM API - Add Element Attribute</h1>
 
 <script>
-"use strict" ;
+"use strict"
 
-// img 태그 추가하기
-var img = document.createElement('img' );
+// create img tag
+var img = document.createElement('img');
 document.body.appendChild(img);
-// 엘리먼트에 원래 존재하는 속성의 값을 다룰때는
-// 엘리먼트명.속성명으로 간단히 사용가능
-// img.src = "suji2.jpg"; // ok
-img['src'] = "suji2.jpg"; // ok
-// 엘리먼트에 없는 속성은 다음과 같은 간단한 방법으로 넣을 수 없다.
-// -> setAttribute() 사용해야 한다.
-img['data-no'] = 2014; // no
 
+// img.src = "suji.png"   ==> ok
+img['src'] = "suji.png";
+// img['data-Number'] = '2016';  ==> Nope
 
-var img2 = document.createElement('img' );
+// setAttribute('src', 'name');
+var img2 = document.createElement('img');
 document.body.appendChild(img2);
-img2.setAttribute('src', 'suji3.jpg'); //ok
-img2.setAttribute('data-n0', 2214); // ok
+img2.setAttribute('src','suji.png');
+img2.setAttribute('data-Number','20160909');
 
-// 참고
-// 엘리먼트의 onclick 속성에 함수를 등록하면,
-// 사용자가 해당 엘리먼트를 클릭했을때 그 함수가 호출된다.
+// onMouseOver, onClick
 img.onmouseover = function(){
-  img.src='suji4.jpg';
+	img.src = 'suji2.jpg';
 }
-img2.onclick = function(){
-  location.href = 'https://www.google.co.kr/search?q=%EC%88%98%EC%A7%80&newwindow=1&client=firefox-a&hs=PJK&rls=org.mozilla:ko:official&channel=sb&source=lnms&tbm=isch&sa=X&ei=REYQU-b0PMK1iAeO7oDABg&ved=0CAkQ_AUoAQ&biw=1280&bih=830' ;
+img.onmouseout = function(){
+	img.src = 'suji.png';
+}
+img.onclick = function(){
+	location.href="http://ittc.kr";
 }
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
