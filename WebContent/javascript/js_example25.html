@@ -30,6 +30,9 @@ var divList = document.getElementsByTagName('div');
 for(var i = 0; i < divList.length; i++){
 	divList[i].onclick = function(){
 		alert(this.innerHTML);
+		
+		// removeChild();
+		document.body.removeChild(this);
 	};
 }
 
