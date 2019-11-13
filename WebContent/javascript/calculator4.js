@@ -4,7 +4,7 @@
 
 function Calculator(){
 	this.sum = 0;
-	this.not = '';
+	this.note = '';
 }
 
 Calculator.prototype.plus = function(value){
